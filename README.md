@@ -56,7 +56,7 @@ vector<int> BRstock = {
 16
 };
 
-// POTS
+// POTENTIOMETERS
 vector<string> pot = {
 "1k ohm pot","5k ohm pot","50k ohm pot",
 "100k ohm pot","1M ohm pot","2M ohm pot"
@@ -111,43 +111,62 @@ vector<int> BSstock = {
 
 void show(vector<string>& items, vector<int>& stock) {
 
+    cout << "\n=====================================\n";
+    cout << "        CURRENT INVENTORY\n";
+    cout << "=====================================\n";
+
     for (int i = 0; i < items.size(); i++) {
-        cout << i + 1 << ". "
+
+        cout << "[" << i + 1 << "] "
              << items[i]
-             << " | "
+             << " ---> Stock: "
              << stock[i]
              << endl;
     }
+
+    cout << "=====================================\n";
 }
 
 void add(vector<int>& stock) {
 
     int item, amount;
 
-    cout << "Item #: ";
+    cout << "\n++++++++++ ADD STOCK ++++++++++\n";
+
+    cout << "Enter Item #: ";
     cin >> item;
 
-    cout << "Amount to add: ";
+    cout << "Enter Amount To Add: ";
     cin >> amount;
 
     stock[item - 1] += amount;
+
+    cout << "\n>>> STOCK UPDATED SUCCESSFULLY <<<\n";
 }
 
 void remove(vector<int>& stock) {
 
     int item, amount;
 
-    cout << "Item #: ";
+    cout << "\n---------- REMOVE STOCK ----------\n";
+
+    cout << "Enter Item #: ";
     cin >> item;
 
-    cout << "Amount to remove: ";
+    cout << "Enter Amount To Remove: ";
     cin >> amount;
 
-    if (amount <= stock[item - 1])
+    if (amount <= stock[item - 1]) {
+
         stock[item - 1] -= amount;
 
-    else
-        cout << "Not enough stock\n";
+        cout << "\n>>> STOCK UPDATED SUCCESSFULLY <<<\n";
+    }
+
+    else {
+
+        cout << "\n!!! NOT ENOUGH STOCK AVAILABLE !!!\n";
+    }
 }
 
 int main() {
@@ -156,15 +175,42 @@ int main() {
 
     do {
 
-        cout << "\n1.View\n2.Add\n3.Remove\n4.Exit\n";
+        cout << "\n";
+        cout << "#####################################\n";
+        cout << "#     ELECTRONICS INVENTORY SYS    #\n";
+        cout << "#####################################\n";
+
+        cout << "\n[1] VIEW INVENTORY";
+        cout << "\n[2] ADD STOCK";
+        cout << "\n[3] REMOVE STOCK";
+        cout << "\n[4] EXIT PROGRAM";
+
+        cout << "\n\nSelect Option --> ";
         cin >> choice;
 
-        if (choice == 4)
+        if (choice == 4) {
+
+            cout << "\n=====================================\n";
+            cout << "     THANK YOU FOR USING SYSTEM\n";
+            cout << "=====================================\n";
+
             break;
+        }
 
-        cout << "\n1.Resistors\n2.Inductors\n3.Batteries\n4.Breadboard\n";
-        cout << "5.Pots\n6.Capacitors\n7.IC Chips\n8.Buttons\n";
+        cout << "\n=====================================\n";
+        cout << "           SELECT CATEGORY\n";
+        cout << "=====================================\n";
 
+        cout << "[1] Resistors\n";
+        cout << "[2] Inductors\n";
+        cout << "[3] Batteries\n";
+        cout << "[4] Breadboard\n";
+        cout << "[5] Pots\n";
+        cout << "[6] Capacitors\n";
+        cout << "[7] IC Chips\n";
+        cout << "[8] Buttons\n";
+
+        cout << "\nChoose Category --> ";
         cin >> category;
 
         if (category == 1) {
