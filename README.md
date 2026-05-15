@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// RESISTORS
+// INVENTORY DATA
 vector<string> resistors = {
 "1 ohm","1.2 ohm","1.5 ohm","1.8 ohm","2.2 ohm","2.7 ohm",
 "3.3 ohm","3.9 ohm","4.7 ohm","5.6 ohm","6.8 ohm","8.2 ohm",
@@ -109,6 +109,7 @@ vector<int> BSstock = {
 4,1,2,10,1
 };
 
+// DISPLAY INVENTORY
 void show(vector<string>& items, vector<int>& stock) {
 
     cout << "\n=====================================\n";
@@ -127,6 +128,7 @@ void show(vector<string>& items, vector<int>& stock) {
     cout << "=====================================\n";
 }
 
+// ADD STOCK TO ITEM
 void add(vector<int>& stock) {
 
     int item, amount;
@@ -144,6 +146,7 @@ void add(vector<int>& stock) {
     cout << "\n>>> STOCK UPDATED SUCCESSFULLY <<<\n";
 }
 
+// REMOVE STOCK FROM ITEM
 void remove(vector<int>& stock) {
 
     int item, amount;
@@ -156,6 +159,7 @@ void remove(vector<int>& stock) {
     cout << "Enter Amount To Remove: ";
     cin >> amount;
 
+    // CHECK IF ENOUGH STOCK EXISTS
     if (amount <= stock[item - 1]) {
 
         stock[item - 1] -= amount;
@@ -175,6 +179,7 @@ int main() {
 
     do {
 
+        // MAIN MENU
         cout << "\n";
         cout << "#####################################\n";
         cout << "#     ELECTRONICS INVENTORY SYS    #\n";
@@ -188,6 +193,7 @@ int main() {
         cout << "\n\nSelect Option --> ";
         cin >> choice;
 
+        // EXIT PROGRAM
         if (choice == 4) {
 
             cout << "\n=====================================\n";
@@ -197,6 +203,7 @@ int main() {
             break;
         }
 
+        // CATEGORY MENU
         cout << "\n=====================================\n";
         cout << "           SELECT CATEGORY\n";
         cout << "=====================================\n";
@@ -213,6 +220,7 @@ int main() {
         cout << "\nChoose Category --> ";
         cin >> category;
 
+        // HANDLE RESISTORS
         if (category == 1) {
             show(resistors, Rstock);
 
@@ -220,6 +228,7 @@ int main() {
             if (choice == 3) remove(Rstock);
         }
 
+        // HANDLE INDUCTORS
         else if (category == 2) {
             show(henrys, Hstock);
 
@@ -227,6 +236,7 @@ int main() {
             if (choice == 3) remove(Hstock);
         }
 
+        // HANDLE BATTERIES
         else if (category == 3) {
             show(batteries, Bstock);
 
@@ -234,6 +244,7 @@ int main() {
             if (choice == 3) remove(Bstock);
         }
 
+        // HANDLE BREADBOARD
         else if (category == 4) {
             show(breadboard, BRstock);
 
@@ -241,6 +252,7 @@ int main() {
             if (choice == 3) remove(BRstock);
         }
 
+        // HANDLE POTS
         else if (category == 5) {
             show(pot, Pstock);
 
@@ -248,6 +260,7 @@ int main() {
             if (choice == 3) remove(Pstock);
         }
 
+        // HANDLE CAPACITORS
         else if (category == 6) {
             show(capacitors, Cstock);
 
@@ -255,6 +268,7 @@ int main() {
             if (choice == 3) remove(Cstock);
         }
 
+        // HANDLE IC CHIPS
         else if (category == 7) {
             show(icChips, ICstock);
 
@@ -262,6 +276,7 @@ int main() {
             if (choice == 3) remove(ICstock);
         }
 
+        // HANDLE BUTTONS
         else if (category == 8) {
             show(BandS, BSstock);
 
