@@ -28,7 +28,7 @@ vector<int> Rstock = {
 94,103,92,92
 };
 
-// INDUCTORS
+// HENRYS
 vector<string> henrys = {
 "10 uH","22uH","47uH","220uH","1 mH","2.2 mH",
 "4.7 mH","10 mH","22 mH","33 mH","47 mH","100 mH"
@@ -209,10 +209,10 @@ int main() {
         cout << "=====================================\n";
 
         cout << "[1] Resistors\n";
-        cout << "[2] Inductors\n";
+        cout << "[2] Henrys\n";
         cout << "[3] Batteries\n";
         cout << "[4] Breadboard\n";
-        cout << "[5] Pots\n";
+        cout << "[5] Potentiometers\n";
         cout << "[6] Capacitors\n";
         cout << "[7] IC Chips\n";
         cout << "[8] Buttons\n";
@@ -228,7 +228,7 @@ int main() {
             if (choice == 3) remove(Rstock);
         }
 
-        // HANDLE INDUCTORS
+        // HANDLE Henrys
         else if (category == 2) {
             show(henrys, Hstock);
 
@@ -252,7 +252,7 @@ int main() {
             if (choice == 3) remove(BRstock);
         }
 
-        // HANDLE POTS
+        // HANDLE POTENTIOMETERS
         else if (category == 5) {
             show(pot, Pstock);
 
